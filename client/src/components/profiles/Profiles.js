@@ -8,7 +8,7 @@ import { getProfiles } from '../../actions/profile';
 const Profiles = ({ getProfiles, profile: { profiles, loading }}) => {
   useEffect(() => {
     getProfiles();
-  }, []);
+  }, [getProfiles]);
   
   return <Fragment>
     {loading ? <Spinner /> : <Fragment>
@@ -21,7 +21,6 @@ const Profiles = ({ getProfiles, profile: { profiles, loading }}) => {
           profiles.map(profile => (
             <ProfileItem key={profile._id} profile={profile} />
           ))
-
         ) : <h4>No Profiles found</h4>}
       </div>
       </Fragment>}
